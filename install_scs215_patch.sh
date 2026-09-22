@@ -3,7 +3,7 @@ set -euo pipefail
 
 if [[ $# -lt 1 || $# -gt 2 ]]; then
   echo "用法：bash install_scs215_patch.sh 原生lerobot目录 [新环境名称]" >&2
-  echo "示例：bash install_scs215_patch.sh ../lerobot-scs215 lerobot-scs215" >&2
+  echo "示例：bash install_scs215_patch.sh ../lerobot_EAI_SCS215 lerobot_EAI_SCS215" >&2
   exit 1
 fi
 
@@ -12,7 +12,7 @@ TARGET_DIR="$(cd "$1" 2>/dev/null && pwd)" || {
   echo "找不到目标目录：$1" >&2
   exit 2
 }
-ENV_NAME="${2:-lerobot-scs215}"
+ENV_NAME="${2:-lerobot_EAI_SCS215}"
 
 if [[ ! -f "${TARGET_DIR}/pyproject.toml" || ! -d "${TARGET_DIR}/src/lerobot" ]]; then
   echo "目标目录不是LeRobot源码仓库：${TARGET_DIR}" >&2
